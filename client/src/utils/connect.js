@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "20.85.181.169/api/user";
+const apiUrl = "https://auth-api-for-cims.herokuapp.com/api/user";
 
 export const sendRegister = async (data) => {
 	try {
