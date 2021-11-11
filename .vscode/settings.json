@@ -1,0 +1,4 @@
+{
+	"appService.deploySubpath": "apis",
+	"appService.defaultWebAppToDeploy": "/subscriptions/07f7bb7f-bbed-45ea-adf1-743e852f7bad/resourceGroups/ty-rg/providers/Microsoft.Web/sites/cimsAuthApi"
+}

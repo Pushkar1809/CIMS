@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "nodemon index.js"
+		"start": "node index.js"
 	},
 	"author": "Pushkar",
 	"license": "MIT",
@@ -13,10 +13,14 @@
 		"bcryptjs": "^2.4.3",
 		"dotenv": "^10.0.0",
 		"express": "^4.17.1",
+		"json-server": "^0.17.0",
 		"jsonwebtoken": "^8.5.1",
 		"mongoose": "^6.0.12"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.14"
+	},
+	"engines": {
+		"node": "14.16.1"
 	}
 }

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "http://localhost:8000/api/user";
+const apiUrl = "20.85.181.169/api/user";
 
 export const sendRegister = async (data) => {
 	try {
