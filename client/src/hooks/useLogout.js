@@ -9,6 +9,14 @@ export const useLogout = (setUser, setIsLoggedIn) => {
 		// setLs(true);
 		setIsLoggedIn(false);
 		navigate("/");
+
+		function preventBack() {
+			window.history.forward();
+		}
+		setTimeout(preventBack, 0);
+		window.onunload = function () {
+			preventBack();
+		};
 	};
 
 	return { logout };

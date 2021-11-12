@@ -1,6 +1,7 @@
 import React from "react";
 import Login from "./Login";
 import Register from "./Register";
+import ErrorBoundary from "../ErrorBoundary";
 
 import "../styles/auth.scss";
 
@@ -12,8 +13,10 @@ const Auth = ({ isLogin, setIsLogin, setUser }) => {
 			</section>
 			<section className="auth-section">
 				{isLogin ? (
+					// <ErrorBoundary>
 					<Login setIsLogin={setIsLogin} setUser={setUser} />
 				) : (
+					// </ErrorBoundary>
 					<Register setIsLogin={setIsLogin} setUser={setUser} />
 				)}
 			</section>

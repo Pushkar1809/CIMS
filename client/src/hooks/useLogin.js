@@ -27,7 +27,7 @@ const useLogin = (validate, setUser) => {
 				const userData = getUserData(values);
 				setUser(userData);
 				navigate("app");
-			}, 3000);
+			}, 2000);
 		}
 
 		if (!keepLog) {

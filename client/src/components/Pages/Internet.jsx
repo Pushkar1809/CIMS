@@ -23,7 +23,7 @@ const Internet = ({ user, connectionStatus, setConnectionStatus }) => {
 							<span>MIS</span>
 							<input
 								type="text"
-								value={values.mis}
+								value={user.mis}
 								name="mis"
 								onChange={handleChange}
 								placeholder="MIS"
@@ -37,6 +37,7 @@ const Internet = ({ user, connectionStatus, setConnectionStatus }) => {
 								type="password"
 								value={values.password}
 								name="password"
+								disabled={connectionStatus}
 								onChange={handleChange}
 								placeholder="Password"
 							/>
@@ -46,8 +47,8 @@ const Internet = ({ user, connectionStatus, setConnectionStatus }) => {
 						)}
 
 						<input
-							className="submit"
-							id={connectionStatus ? "disabled submit" : "submit"}
+							className={connectionStatus ? "disabled submit" : "submit"}
+							disa3bled={connectionStatus}
 							type="submit"
 							value="Connect"
 						/>

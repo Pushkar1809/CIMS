@@ -1,12 +1,25 @@
-import React from "react";
-import useAtt from "../../hooks/useAtt";
+import React, { useState } from "react";
 import "../../styles/internet.scss";
+import { markIn, markOut } from "../../utils/connect";
 
 const InOut = ({ user, inCampus, setInCampus }) => {
-	const handleSubmit = (e) => {
+	const [entryId, setEntryId] = useState("");
+
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		// handle API here
-		setInCampus(!inCampus);
+		console.log(e);
+		if (!inCampus) {
+			// console.log(instId);
+			const id = await markIn({ userId: user.mis });
+			setEntryId(id);
+			console.log(inCampus);
+			setInCampus(true);
+			console.log(inCampus);
+		} else {
+			markOut({ userId: user.mis }, entryId);
+			setInCampus(false);
+		}
 	};
 
 	return (

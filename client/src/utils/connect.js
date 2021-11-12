@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const apiUrl = "https://auth-api-for-cims.herokuapp.com/api/user";
+const apiUrl = "http://localhost:8000/api";
 
 export const sendRegister = async (data) => {
 	try {
-		const res = await axios.post(`${apiUrl}/register`, data);
+		const res = await axios.post(`${apiUrl}/user/register`, data);
 		alert(`Successfully registered ${data.email}`);
 		if (res.status === 400) {
 			alert("User already registered");
@@ -21,7 +21,7 @@ export const sendRegister = async (data) => {
 
 export const sendLogin = async (data, setUser) => {
 	try {
-		const res = await axios.post(`${apiUrl}/login`, data);
+		const res = await axios.post(`${apiUrl}/user/login`, data);
 		// console.log(res.data);
 		window.localStorage.setItem("token", res.data);
 		// const user = await getUserData(res.data);
@@ -43,7 +43,7 @@ export const getUserData = async () => {
 	const token = window.localStorage.getItem("token");
 
 	try {
-		const res = await axios.get(apiUrl, {
+		const res = await axios.get(`${apiUrl}/user`, {
 			headers: {
 				"auth-token": token,
 			},
@@ -65,5 +65,51 @@ export const getUserData = async () => {
 		// }
 		console.log(error);
 		return {};
+	}
+};
+
+export const markAttendence = async (data) => {
+	try {
+		const res = await axios.post(`${apiUrl}/att`, data);
+		console.log(res.data);
+		const { inst } = res.data;
+		return inst;
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+export const updateAttendence = async (data, id) => {
+	try {
+		const res = await axios.put(`${apiUrl}/att/${id}`, data);
+		// console.log(res.data);
+		const { newInst, msg } = res.data;
+		alert(msg);
+		// console.log(newInst);
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+export const markIn = async (data) => {
+	try {
+		const res = await axios.post(`${apiUrl}/io`, data);
+		console.log(res.data);
+		const { entry } = res.data;
+		return entry;
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+export const markOut = async (data, id) => {
+	try {
+		const res = await axios.put(`${apiUrl}/io/${id}`, data);
+		// console.log(res.data);
+		const { newEntry, msg } = res.data;
+		alert(msg);
+		console.log(newEntry);
+	} catch (err) {
+		console.log(err);
 	}
 };

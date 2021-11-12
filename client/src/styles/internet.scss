@@ -79,8 +79,9 @@
 				border: none;
 				cursor: pointer;
 			}
-			#disabled {
+			.disabled {
 				background-color: rgb(148, 148, 148);
+				cursor: default;
 			}
 			#submit-danger {
 				background-color: $danger !important;

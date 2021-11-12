@@ -58,7 +58,7 @@ const Main = ({ user, setUser, setIsLoggedIn }) => {
 	const setUserData = async () => {
 		try {
 			const data = await getUserData();
-			console.log("data ->", data);
+			// console.log("data ->", data);
 			setUser(data);
 		} catch (err) {
 			alert(err);
@@ -68,7 +68,7 @@ const Main = ({ user, setUser, setIsLoggedIn }) => {
 	useEffect(() => {
 		setUserData();
 		// console.log("user -> ", user);
-	}, []);
+	});
 
 	return (
 		<main>

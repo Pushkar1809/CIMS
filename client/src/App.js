@@ -5,6 +5,7 @@ import {
 	Routes,
 	Navigate,
 } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
 
 import "./styles/App.scss";
 
@@ -23,7 +24,7 @@ const App = () => {
 			setIsLoggedIn(true);
 			// setIsLsClear(false);
 		}
-	}, [isLoggedIn]);
+	}, [user]);
 
 	return (
 		<div className="App">
@@ -45,16 +46,18 @@ const App = () => {
 							exact
 						/>
 					)}
+
 					<Route
 						path="/app"
-						exact
 						element={
-							<Main
-								user={user}
-								setUser={setUser}
-								// setLs={setIsLsClear}
-								setIsLoggedIn={setIsLoggedIn}
-							/>
+							<PrivateRoute isLoggedIn={isLoggedIn}>
+								<Main
+									user={user}
+									setUser={setUser}
+									// setLs={setIsLsClear}
+									setIsLoggedIn={setIsLoggedIn}
+								/>
+							</PrivateRoute>
 						}
 					/>
 				</Routes>

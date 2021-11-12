@@ -1,6 +1,6 @@
 export const validateNet = (values) => {
 	const errors = {};
-	const mis_regex = /\d+/;
+	// const mis_regex = /\d+/;
 
 	// console.log(values);
 	// if (!values.mis) {
